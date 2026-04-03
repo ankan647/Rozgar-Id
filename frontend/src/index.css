@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface text-slate-800;
+  }
+  ::selection {
+    @apply bg-brand-400/40 text-brand-900;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-glass border border-border p-6 transition-all duration-300;
+  }
+  .card:hover {
+    @apply shadow-glass-lg;
+  }
+  .card-solid {
+    @apply bg-white rounded-2xl shadow-glass border border-border p-6 transition-all duration-300;
+  }
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl font-semibold text-white bg-brand-700 hover:bg-brand-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 shadow-brand hover:shadow-lg active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl font-semibold text-brand-700 bg-brand-50 hover:bg-brand-100 border border-brand-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-outline {
+    @apply px-6 py-3 rounded-xl font-semibold border border-border text-slate-700 hover:bg-brand-50 hover:border-brand-300 transition-all duration-300;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-white/90 text-slate-800 placeholder-slate-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-1 focus:border-brand-500 hover:border-brand-300;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .badge-active {
+    @apply badge bg-emerald-100 text-emerald-800;
+  }
+  .badge-revoked {
+    @apply badge bg-red-100 text-red-800;
+  }
+  .badge-expired {
+    @apply badge bg-amber-100 text-amber-800;
+  }
+  .badge-brand {
+    @apply badge bg-brand-100 text-brand-700;
+  }
+  .glass-nav {
+    @apply bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-glass sticky top-0 z-50;
+  }
+}

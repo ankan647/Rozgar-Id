@@ -1,0 +1,21 @@
+{
+  "name": "rozgarid",
+  "version": "1.0.0",
+  "description": "RozgarID — Self Sovereign Identity for Migrant Workers",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "wallet-pwa",
+    "backend",
+    "contracts"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:wallet": "npm run dev --workspace=wallet-pwa",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build:wallet": "npm run build --workspace=wallet-pwa",
+    "compile:contracts": "npm run compile --workspace=contracts",
+    "deploy:contracts": "npm run deploy --workspace=contracts"
+  }
+}
