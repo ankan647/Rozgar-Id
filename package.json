@@ -16,6 +16,8 @@
     "build:frontend": "npm run build --workspace=frontend",
     "build:wallet": "npm run build --workspace=wallet-pwa",
     "compile:contracts": "npm run compile --workspace=contracts",
-    "deploy:contracts": "npm run deploy --workspace=contracts"
+    "deploy:contracts": "npm run deploy --workspace=contracts",
+    "build": "npm install",
+    "start": "npm start --workspace=backend"
   }
 }
