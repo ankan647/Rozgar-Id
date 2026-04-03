@@ -36,6 +36,8 @@ app.use(cors({
   origin: [
     process.env.FRONTEND_URL || "http://localhost:5173",
     process.env.WALLET_URL || "http://localhost:5174",
+    'https://rozgar-id-frontend.vercel.app',
+    'https://rozgar-id-wallet.vercel.app'
   ],
   credentials: true,
 }));
@@ -62,7 +64,7 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: [
       '/api/v1/auth',
-      '/api/v1/issuer', 
+      '/api/v1/issuer',
       '/api/v1/worker',
       '/api/v1/verifier'
     ]
