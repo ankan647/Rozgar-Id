@@ -22,6 +22,16 @@ connectDB();
 
 // Security middleware
 app.use(helmet());
+
+// Content Security Policy
+app.use((req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none';"
+  );
+  next();
+});
+
 app.use(cors({
   origin: [
     process.env.FRONTEND_URL || "http://localhost:5173",
@@ -44,7 +54,25 @@ app.use(limiter);
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-// Health check
+// Health check and Root routes
+app.get('/', (req, res) => {
+  res.json({
+    message: 'RozgarID Backend API',
+    status: 'Server is running',
+    version: '1.0.0',
+    endpoints: [
+      '/api/v1/auth',
+      '/api/v1/issuer', 
+      '/api/v1/worker',
+      '/api/v1/verifier'
+    ]
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 app.get("/api/v1/health", (req, res) => {
   res.json({ status: "ok", service: "RozgarID API", timestamp: new Date().toISOString() });
 });
